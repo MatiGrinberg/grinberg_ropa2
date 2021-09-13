@@ -1,0 +1,9 @@
+.product{
+    display: flex;
+    max-height: 400px;
+    min-width: 100px;
+    margin: 10px;
+    z-index: 1;
+    width: 100px;
+    padding: 20px;
+}

@@ -1,0 +1,13 @@
+.home{
+   background-color: darkolivegreen;
+}
+
+.home_img{
+    z-index: -1;
+    margin-top: 180px;
+    display: flex;
+    padding: 20px;
+    margin-left: 150px ;
+    height: 150px;
+    width: 150px;
+}
