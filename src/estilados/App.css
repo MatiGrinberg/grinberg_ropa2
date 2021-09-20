@@ -1,3 +1,4 @@
+/* HTML Elements  */
 *{
   margin: 0;
   
@@ -27,6 +28,14 @@ form label{
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Classes */
+.cat{
+  margin: 50px;
+  padding: 20px;
+  font-size: 30px;
+  display: block;
 }
 .compra_end{
   color: red;
@@ -116,10 +125,9 @@ code {
   background-color: lightblue;
 }
 .compra{
-  /* display: flex; */
   font-size: 40px;
   background-color: burlywood;
-  margin: 5px auto; /* 15% from the top and centered */
+  margin: 5px auto; 
   border: 4px solid #888;
   width: 80%;
   padding: 20px;
@@ -147,15 +155,13 @@ code {
 
 .home{
   background-color: darkolivegreen;
-  
-  
 }
+
 .texto_prod{
    padding: 12px;
    margin: 5px;
 }
 .home_img{
-   /* z-index: -1; */
    margin-top: 180px;
    display: flex;
    padding: 20px;

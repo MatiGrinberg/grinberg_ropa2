@@ -1,10 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-// import { Context } from './Context'
-// import {initialState} from './Reducer'
-import './index.css'
-import './App.css'
+import './estilados/index.css'
+import './estilados/App.css'
+
 
 
 ReactDOM.render(

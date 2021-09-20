@@ -1,32 +1,36 @@
-import './App.css'
-import data from './data'
+import './estilados/App.css'
+import data from './components/data'
 import React, { useState,useContext } from 'react'
-import Login from './Login'
-import Cart from './Cart'
-import Home from './Home'
-import Signup from './Signup'
-import Product from './Product'
-import ProductOnly from './ProductOnly'
-import Checkout from './Checkout'
-import PrivateRoute from './PrivateRoute'
-import { AuthProvider,AuthContext } from './Context';
+import Login from './components/Login'
+import ItemCount from './components/ItemCount'
+import ItemListContainer from './components/ItemListContainer'
+import Signup from './components/Signup'
+import Item from './components/Item'
+import ItemDetail from './components/ItemDetail'
+import ItemDetailContainer from './components/ItemDetailContainer'
+import Checkout from './components/Checkout'
+// import PrivateRoute from './components/PrivateRoute'
+import { AuthProvider,AuthContext } from './components/Context';
 import {BrowserRouter as Router, Switch, Route,Link} from 'react-router-dom'
-import NavBar from './Header'
-import app from './Firebase'
+import NavBar from './components/NavBar'
+import app from './components/Firebase'
 
 
 function App() {
+  // Variables
+  
   const { products } = data;
+  
+  
+  // useState
   const [cartItems,setCartItems] = useState([]);
   
-  // const {currentUser} = useContext(AuthContext)
-
+// Funciones
 const onAddFirst = (product) =>{
   const exist = cartItems.find(item =>item.id === product.id)
   if(exist){ }
   else{setCartItems([...cartItems,{...product, qty:1}])}
 }
-
 
 const onAdd = (product) => {
   const exist = cartItems.find((item) => item.id === product.id);
@@ -53,29 +57,31 @@ const onRemove = (product) => {
     );
   }
 };
-  
+
+//  Return  
   return (
     <AuthProvider>
       <Router>
           <div className="App">
+              <Route exact path="/category">
+                <ItemDetailContainer products={products}/>
+              </Route>
               <Route exact path="/">
-                <Home onAdd={onAdd} onAddFirst={onAddFirst} onRemove={onRemove} products={products} cartItems={cartItems}/>
+                <ItemListContainer onAdd={onAdd} onAddFirst={onAddFirst} onRemove={onRemove} products={products} cartItems={cartItems}/>
               </Route>
               <Route path="/cart"> 
                 <Link to='/' className='header_link'>
                     <h1 className='inicio'> CLICK PARA IR A INICIO</h1>
                 </Link>
-                <Cart onAdd={onAdd}  onRemove={onRemove} cartItems={cartItems}/>
+                <ItemCount onAdd={onAdd}  onRemove={onRemove} cartItems={cartItems}/>
               </Route>
-              <Route path="/zapato">
+              <Route path="/zapato/zapato">
                 <NavBar/>
-                <ProductOnly desc='zapatos cuero vacuno negro 100% argentino' image='/Assets/zapatosCuero.jpeg'/>
-                {/* <Product onAdd={onAdd}/> */}
+                <ItemDetail desc='zapatos cuero vacuno negro 100% argentino' image='/Assets/zapatosCuero.jpeg' price={100}/>
               </Route>
-              <Route path="/campera">
+              <Route path="/campera/campera">
                 <NavBar/>
-                <ProductOnly desc='campera cuero ovino negro 100% argentino' image='/Assets/camperaCuero.jpeg'/>
-                {/* <Product onAdd={onAdd}/> */}
+                <ItemDetail desc='campera cuero ovino negro 100% argentino' image='/Assets/camperaCuero.jpeg' price={500}/>
               </Route>
               <Route path="/login">
                 <Login/>

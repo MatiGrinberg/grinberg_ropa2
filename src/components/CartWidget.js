@@ -1,0 +1,19 @@
+import '../estilados/App.css'
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
+import React, {useState, useCallback } from "react";
+
+                
+
+function CartWidget(prop) {
+    return (
+        <div>
+            <ShoppingBasketIcon/>            
+            <span className='basketCount'>{prop.countCartItems}</span>
+        </div>
+    )
+}
+
+export default CartWidget
+                        
+                        
+                        

@@ -1,18 +1,17 @@
 import React, { useContext }  from 'react'
 import {Redirect} from 'react-router-dom'
-import './App.css'
+import '../estilados/App.css'
 import {useStateValue, AuthProvider,AuthContext } from './Context'
-import Cart from './Cart'
+import ItemCount from './ItemCount'
 
-// function Product({onAdd, id, image, title, price , desc, stock}) {
-function Product(props) {
-    // const product = {id} {image} {title} {price} {desc} {stock}
-    // console.log(product)
-    
+function Item(props) {
+    // Variables    
     const {product, onAdd} = props
     const {currentUser} = useContext(AuthContext)
+    // Logged in?
     if (!currentUser) {
         return <Redirect to='/login'/>}
+    // Return
     return (
     <div className='individual'>
         <div className='home_img'>
@@ -29,4 +28,4 @@ function Product(props) {
     )
 }
 
-export default Product
+export default Item

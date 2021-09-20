@@ -1,23 +1,23 @@
 import React,{ useContext,useState } from 'react'
 import {Redirect} from 'react-router-dom'
-import './App.css'
-import NavBar from './Header'
+import '../estilados/App.css'
+import NavBar from './NavBar'
 import { AuthProvider,AuthContext,useAuth } from './Context'
-import Cart from './Cart'
+import ItemCount from './ItemCount'
 import {db} from './Firebase'
 import {Link,useHistory} from 'react-router-dom'
 
 function Checkout(props) {
-    const [compras,setCompras] = useState([]);
-    const {cartItems,setCartItems} = props;
+    
+    // Variables
     const {currentUser, logout} = useAuth()
     const history = useHistory()
-    
-    if (!currentUser) {
-        return <Redirect to='/login'/>}
+    const {cartItems,setCartItems} = props;
 
+    // Funciones
+    const [compras,setCompras] = useState([]);
+    
     const baseDeDatos = (e)=>{
-        // initial = []
         e.preventDefault();
         const { direccion, email } = e.target.elements;
         const dire = direccion.value;
@@ -33,11 +33,14 @@ function Checkout(props) {
             logout()
             }, 5000);
             })
-        })
-        
-        
+        }) 
     }
-       
+    
+    // Logged in?
+    if (!currentUser) {
+    return <Redirect to='/login'/>}
+
+    // Return 
     return(
         <div>
             <form className='compra' onSubmit={baseDeDatos}>
@@ -57,50 +60,14 @@ function Checkout(props) {
                 <button className='clasico' type="submit">Comprar</button>
             </div>
             </form>
-            {/* <Cart cartItems={cartItems}/> */}
-            {/* <div>{ (i) &&
-                }
-            </div> */}
             <div className='compra_end'>
                 <h2>Tu ID de compra es:</h2>
                 <div className='compra_id'><h3>{compras.at(-1)}</h3></div>
-                {/* <h3>{c}</h3> */}
                 <h4>- segun Firestore</h4>
             </div>
         </div>
         
     )
-    // const [{canasto}] = useStateValue();
-    // return (
-    //     <div>
-    //         <div className='checkout'>
-    //             <div className='left'>
-    //                 {
-    //                     canasto.length === 0 ?(
-    //                         <div><h2 className='checkout_title'>No tenes productos</h2></div>
-
-    //                     ):(
-    //                         <div>
-    //                             canasto.map((item) =>(
-    //                                 <Cart
-    //                                     id={item.id}
-    //                                     title={item.title}
-    //                                     price={item.price}
-    //                                 />                                    
-    //                             ))
-    //                         </div>
-
-    //                     )
-    //                 }
-                    
-    //             </div>
-    //             <div className='right'>
-    //                 <Subtotal/>
-    //             </div>
-    //         </div>
-    //     </div>
-        
-    // )
 }
 
 export default Checkout

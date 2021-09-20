@@ -1,12 +1,15 @@
 import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import app from "./Firebase.js";
-import './App.css'
+import '../estilados/App.css'
 import { AuthContext } from "./Context.js";
 import {Link,useHistory} from 'react-router-dom'
 
 const Login = () => {
+  // Variables
   const history = useHistory()
+  const { currentUser } = useContext(AuthContext);
+  // Funciones
   const handleLogin = useCallback(
     async event => {
       event.preventDefault();
@@ -23,14 +26,12 @@ const Login = () => {
     [history]
   );
 
-  const { currentUser } = useContext(AuthContext);
-
+  // Logged in?
   if (currentUser) {
     return <Redirect to="/" />;
   }
 
-
-
+  // Return?
   return (
     <div>
       <h1>Log in</h1>

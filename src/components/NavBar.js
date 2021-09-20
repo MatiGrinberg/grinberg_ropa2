@@ -1,33 +1,29 @@
-import './App.css'
+import '../estilados/App.css'
 import {Link,useHistory} from 'react-router-dom'
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
 import {useStateValue} from './Context'
 import app from './Firebase'
+import CartWidget from './CartWidget'
 import firebase from 'firebase/app';
-// import {auth} from './Context'
 import { withRouter, Redirect } from "react-router";
 import React, {useState, useCallback } from "react";
 import {useAuth} from './Context'
 import {AuthProvider} from './Context'
 import {auth} from './Firebase'
-// import {setCurrentUser} from './Context'
-// import Logout from './Logout'
-
-
 
 
 function NavBar(prop) {
-    
+    // Variables
     const {currentUser, logout} = useAuth()
     const history = useHistory()
-
+    // Funciones
     async function handleLogout(){
         await logout()
         history.push('/login')
     }
 
+    // Return
     return (
-        
           
         <nav className='header'>
             <Link to='/' className='header_link'>
@@ -37,30 +33,32 @@ function NavBar(prop) {
                 <h1 className='nombreNegocio'>Grinberg_Ropa</h1>
             </Link>
             <div className='navBar'>
-                <Link to='/zapato' className='header_link'>
+                <Link to='/zapato/zapato' className='header_link'>
                     <div className='header_option'>
                         <span className='header_option_lineOne'>Zapato </span>            
                     </div>    
                 </Link>
-                <Link to='/campera' className='header_link'>
+                <Link to='/campera/campera' className='header_link'>
                     <div className='header_option'>
                         <span className='header_option_lineOne'>Campera</span>            
                     </div>    
                 </Link>
+                <Link to='/category' className='header_link'>
+                    <div className='header_option'>
+                        <span className='header_option_lineOne'>Categorias</span>            
+                    </div>    
+                </Link>
                 <Link to='/cart' className='header_link'>
                     <div className='header_basket'>
-                        <ShoppingBasketIcon/>            
-                        <span className='basketCount'>{prop.countCartItems}</span>
-                        {/* <span className='basketCount'>{canasto? canasto.length:0}</span> */}
+                        <CartWidget countCartItems={prop.countCartItems} />
+                        {/* <ShoppingBasketIcon/>            
+                        <span className='basketCount'>{prop.countCartItems}</span> */}
+
                     </div>    
                 </Link>
                 <button onClick={handleLogout}>Sign out</button>
-                {/* <button onClick={() => setCurrentUser(null)}>Sign out</button> */}
-                {/* <Logout/> */}
                 <div className='loggedin'>{currentUser && <p>{currentUser.email}</p>}</div>
-                
-            </div>
-            
+            </div> 
         </nav>
     );
 }

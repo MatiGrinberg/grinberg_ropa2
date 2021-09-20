@@ -1,32 +1,31 @@
 import {Link,useHistory} from 'react-router-dom'
 import React,{ useContext }  from 'react'
 import {Redirect} from 'react-router-dom'
-import './App.css'
+import '../estilados/App.css'
 import {useState , useStateValue} from 'react'
-import NavBar from './Header';
+import NavBar from './NavBar';
 import Checkout from './Checkout';
 import { AuthProvider,AuthContext } from './Context'
-// import {useStateValue} from './Context'
 
 
-function Cart(props) {
+function ItemCount(props) {
+    // Variables + Funciones
+    const {cartItems, onAdd, onRemove} = props;
     const {currentUser} = useContext(AuthContext)
+    const total = cartItems.reduce((a, c) => a + c.qty * c.price, 0)
+    // Logged in?
     if (!currentUser) {
         return <Redirect to='/login'/>}
-    const {cartItems, onAdd, onRemove} = props;
-    const total = cartItems.reduce((a, c) => a + c.qty * c.price, 0)
-    // const [disable,setDisable] = useState(false);
+    
+    // Return
     return (
             <div className='cart'>
-                {/* <NavBar countCartItems={cartItems.length}/> */}
                 <h1>Items</h1>
                 <div className="cart_text">
                     { cartItems.length===0 && <h2>No tenes items seleccionados</h2>}
                 </div>
                 <div className='subt'>
-                
                     {cartItems.map((item)=>(
-                         
                         <div key={item.id} className='subt'>
                             <h3>{item.title}</h3>
                             <h3>{item.qty} x ${item.price}</h3>
@@ -59,5 +58,5 @@ function Cart(props) {
         )
 }
 
-export default Cart
+export default ItemCount
 

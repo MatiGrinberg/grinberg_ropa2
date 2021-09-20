@@ -1,25 +1,26 @@
 import React, { useContext }  from 'react'
 import {Redirect} from 'react-router-dom'
-import './App.css'
+import '../estilados/App.css'
 import {useStateValue, AuthProvider,AuthContext } from './Context'
-import Cart from './Cart'
+import ItemCount from './ItemCount'
 import {BrowserRouter as Router, Switch, Route,Link} from 'react-router-dom'
 
-// function Product({onAdd, id, image, title, price , desc, stock}) {
-function Product({desc, image}) {
-    // const product = {id} {image} {title} {price} {desc} {stock}
-    // console.log(product)
+function Product(props) {
     
+    // Logged in?
     const {currentUser} = useContext(AuthContext)
     if (!currentUser) {
         return <Redirect to='/login'/>}
+    
+    // Return
     return (
     <div className='individual'>
         <div className='home_img'>
-            <img src={image} alt='product'/> 
+            <img src={props.image} alt='product'/> 
         </div>
         <div className='texto_prod'>   
-            <h2>{desc}</h2>            
+            <h2>{props.desc}</h2> 
+            <h3>$ {props.price}</h3>           
         </div>
         <div>
             <Link to='/'>

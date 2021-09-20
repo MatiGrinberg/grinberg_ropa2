@@ -2,15 +2,15 @@ import React, { useRef, useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "./Firebase";
 import Login from "./Login";
-import './App.css'
+import '../estilados/App.css'
 import {Link, useHistory} from 'react-router-dom'
 
 const SignUp = () => {
+  // Variables
   const history = useHistory()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef() 
-  
-
+  // Function
   const handleSignUp = useCallback(async event => {
     event.preventDefault();
     const { email, password , password2} = event.target.elements;
@@ -27,7 +27,7 @@ const SignUp = () => {
     }
   }, [history]);
 
-
+  // Return
   return (
     <div>
       <h1>Sign up</h1>
