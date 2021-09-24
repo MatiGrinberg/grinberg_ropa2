@@ -1,16 +1,16 @@
 import React, { useContext }  from 'react'
 import {Redirect} from 'react-router-dom'
-import '../estilados/App.css'
-import {useStateValue, AuthProvider,AuthContext } from './Context'
-import ItemCount from './ItemCount'
+import '../../estilados/App.css'
+import {useStateValue, AuthProvider,AuthContext } from '../NoRequeridas/Context'
+import ItemCount from '../ItemCount/ItemCount'
 import {BrowserRouter as Router, Switch, Route,Link} from 'react-router-dom'
 
-function Product(props) {
+function ItemDetail(props) {
     
     // Logged in?
-    const {currentUser} = useContext(AuthContext)
-    if (!currentUser) {
-        return <Redirect to='/login'/>}
+    // const {currentUser} = useContext(AuthContext)
+    // if (!currentUser) {
+    //     return <Redirect to='/login'/>}
     
     // Return
     return (
@@ -31,4 +31,4 @@ function Product(props) {
     )
 }
 
-export default Product
+export default ItemDetail

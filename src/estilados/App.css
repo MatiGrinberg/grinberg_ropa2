@@ -159,13 +159,15 @@ code {
 
 .texto_prod{
    padding: 12px;
-   margin: 5px;
+   margin: 50px;
+   font-size: 40px;
+   
 }
 .home_img{
-   margin-top: 180px;
+   margin-top: 80px;
    display: flex;
    padding: 20px;
-   margin-left: 150px ;
+   margin-left: 50px ;
    height: 150px;
    width: 150px;
 }

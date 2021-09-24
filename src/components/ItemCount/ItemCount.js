@@ -1,21 +1,21 @@
 import {Link,useHistory} from 'react-router-dom'
 import React,{ useContext }  from 'react'
 import {Redirect} from 'react-router-dom'
-import '../estilados/App.css'
+import '../../estilados/App.css'
 import {useState , useStateValue} from 'react'
-import NavBar from './NavBar';
-import Checkout from './Checkout';
-import { AuthProvider,AuthContext } from './Context'
+import NavBar from '../NavBar/NavBar';
+// import Checkout from '../NoRequeridas/Checkout';
+// import { AuthProvider,AuthContext } from '../NoRequeridas/Context'
 
 
 function ItemCount(props) {
     // Variables + Funciones
     const {cartItems, onAdd, onRemove} = props;
-    const {currentUser} = useContext(AuthContext)
+    // const {currentUser} = useContext(AuthContext)
     const total = cartItems.reduce((a, c) => a + c.qty * c.price, 0)
     // Logged in?
-    if (!currentUser) {
-        return <Redirect to='/login'/>}
+    // if (!currentUser) {
+    //     return <Redirect to='/login'/>}
     
     // Return
     return (
@@ -35,7 +35,7 @@ function ItemCount(props) {
                     ))}
                 </div>
            
-                {cartItems.length !== 0 && (
+                {/* {cartItems.length !== 0 && (
                     <div className='tot'>
                         <div >
                             <div className="col-2">
@@ -52,7 +52,7 @@ function ItemCount(props) {
                             </Link>    
                         </div>
                     </div>
-                )}
+                )} */}
             </div> 
               
         )

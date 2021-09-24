@@ -1,26 +1,24 @@
-import '../estilados/App.css'
+import '../../estilados/App.css'
 import {Link,useHistory} from 'react-router-dom'
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
-import {useStateValue} from './Context'
-import app from './Firebase'
-import CartWidget from './CartWidget'
-import firebase from 'firebase/app';
+// import app from '../NoRequeridas/Firebase'
+import CartWidget from '../CartWidget/CartWidget'
+// import firebase from 'firebase/app';
 import { withRouter, Redirect } from "react-router";
 import React, {useState, useCallback } from "react";
-import {useAuth} from './Context'
-import {AuthProvider} from './Context'
-import {auth} from './Firebase'
+// import {useAuth, AuthProvider,useStateValue} from '../NoRequeridas/Context'
+// import {auth} from '../NoRequeridas/Firebase'
 
 
 function NavBar(prop) {
     // Variables
-    const {currentUser, logout} = useAuth()
-    const history = useHistory()
+    // const {currentUser, logout} = useAuth()
+    // const history = useHistory()
     // Funciones
-    async function handleLogout(){
-        await logout()
-        history.push('/login')
-    }
+    // async function handleLogout(){
+    //     await logout()
+    //     history.push('/login')
+    // }
 
     // Return
     return (
@@ -51,13 +49,10 @@ function NavBar(prop) {
                 <Link to='/cart' className='header_link'>
                     <div className='header_basket'>
                         <CartWidget countCartItems={prop.countCartItems} />
-                        {/* <ShoppingBasketIcon/>            
-                        <span className='basketCount'>{prop.countCartItems}</span> */}
-
                     </div>    
                 </Link>
-                <button onClick={handleLogout}>Sign out</button>
-                <div className='loggedin'>{currentUser && <p>{currentUser.email}</p>}</div>
+                {/* <button onClick={handleLogout}>Sign out</button> */}
+                {/* <div className='loggedin'>{currentUser && <p>{currentUser.email}</p>}</div> */}
             </div> 
         </nav>
     );

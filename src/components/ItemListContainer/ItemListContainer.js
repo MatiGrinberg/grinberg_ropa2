@@ -1,11 +1,11 @@
 import React, { useContext }  from 'react'
 import {Redirect} from 'react-router-dom'
-import app from './Firebase'
-import Item from './Item'
-import NavBar from './NavBar'
-import ItemCount from './ItemCount'
-import ItemList from './ItemList'
-import { AuthProvider,AuthContext } from './Context'
+import app from '../NoRequeridas/Firebase'
+import Item from '../Item/Item'
+import NavBar from '../NavBar/NavBar'
+import ItemCount from '../ItemCount/ItemCount'
+import ItemList from '../ItemList/ItemList'
+// import { AuthProvider,AuthContext } from '../NoRequeridas/Context'
 
 
 
