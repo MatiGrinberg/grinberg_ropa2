@@ -1,6 +1,6 @@
 import React, { useEffect, useContext,useState }  from 'react'
 import {Redirect} from 'react-router-dom'
-import app from '../NoRequeridas/Firebase'
+// import app from '../NoRequeridas/Firebase'
 import Item from '../Item/Item'
 import NavBar from '../NavBar/NavBar'
 import ItemCount from '../ItemCount/ItemCount'
@@ -9,7 +9,7 @@ import {Link,useHistory} from 'react-router-dom'
 
 function ItemList(props) {
    // Variables y Funciones
-   const {products, cartItems, onRemove, onAdd, onAddFirst } = props;
+   const {products, cartItems, onRemove, onAdd, onAddFirst} = props;
 //    const {currentUser} = useContext(AuthContext)
    const [productsDelay, setProductsDelay] =useState([])
 
@@ -37,7 +37,7 @@ function ItemList(props) {
            ))
             }
             
-           <ItemCount onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/>
+           {/* <ItemCount onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/> */}
            </div>
    )  
 } 

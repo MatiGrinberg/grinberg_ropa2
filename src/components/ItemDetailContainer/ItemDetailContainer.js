@@ -7,7 +7,7 @@ import '../../estilados/App.css'
 
 function ItemDetailContainer(props) {
     // Almacenamiento de productos
-    const {products } = props;
+    const {products, cartItems, onRemove, onAdd, onAddFirst } = props;
     const [product, setProducts] = useState([]);
     // Promise
     const promise = new Promise((resolve,reject)=>{

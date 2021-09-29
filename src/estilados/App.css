@@ -156,7 +156,11 @@ code {
 .home{
   background-color: darkolivegreen;
 }
-
+.actual{
+  font-size: 50px;
+  padding: 5px;
+  color: green;
+}
 .texto_prod{
    padding: 12px;
    margin: 50px;

@@ -7,8 +7,11 @@ import React, {useState, useCallback } from "react";
 function CartWidget(prop) {
     return (
         <div>
+        { prop.countCartItems!==0 && 
+        <div>
             <ShoppingBasketIcon/>            
             <span className='basketCount'>{prop.countCartItems}</span>
+        </div> }  
         </div>
     )
 }

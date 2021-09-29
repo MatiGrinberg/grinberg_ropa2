@@ -28,7 +28,7 @@ function Item(props) {
             <h3>{product.desc}</h3>
             <h3>Stock Max: {product.stock}</h3> */}
         </div>
-        <button class='clasico' onClick={()=>onAdd(product)}>Agregar</button>
+        {/* <button class='clasico' onClick={()=>onAdd(product)}>Agregar</button> */}
     </div>
     )
 }

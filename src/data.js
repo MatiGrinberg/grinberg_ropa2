@@ -2,6 +2,7 @@ const data ={
     products:[
         {
         id:'1',
+        qty: 0,
         stock:10, 
         title:'Zapatos_Cuero', 
         price:100, 
@@ -11,6 +12,7 @@ const data ={
         },
         { 
         id:'2', 
+        qty: 0,
         stock:10, 
         title:'Campera_Cuero', 
         price:500, 
