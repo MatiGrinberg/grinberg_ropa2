@@ -14,6 +14,7 @@ function NavBar(prop) {
     // Variables
     // const {currentUser, logout} = useAuth()
     // const history = useHistory()
+    
     // Funciones
     // async function handleLogout(){
     //     await logout()

@@ -7,8 +7,10 @@ import '../../estilados/App.css'
 
 function ItemDetailContainer(props) {
     // Almacenamiento de productos
-    const {products, cartItems, onRemove, onAdd, onAddFirst } = props;
+    const {products} = props;
     const [product, setProducts] = useState([]);
+   
+   
     // Promise
     const promise = new Promise((resolve,reject)=>{
         setTimeout(() => {

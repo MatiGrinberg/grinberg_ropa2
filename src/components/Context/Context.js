@@ -1,6 +1,6 @@
 import React,{useEffect,useContext, useState} from 'react'
-import app from '../NoRequeridas/Firebase'
-import {auth} from '../NoRequeridas/Firebase'
+import app from '../Firebase/Firebase'
+import {auth} from '../Firebase/Firebase'
 
 
 // CartContext

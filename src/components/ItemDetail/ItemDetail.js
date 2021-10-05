@@ -15,18 +15,16 @@ function ItemDetail(props) {
     // Return
     return (
         
-        
     <div className='individual'>
-        {console.log(props.id)}
         <div className='home_img'>
-            <img src={props.image} alt='product'/> 
+            <img src={props.prod.image} alt='product'/> 
         </div>
         <div className='texto_prod'>   
-            <h2>{props.desc}</h2> 
-            <h3>$ {props.price}</h3>           
+            <h2 className='des'>{props.prod.desc}</h2> 
+            <h3>$ {props.prod.price}</h3>           
         </div>
         <div>
-        <ItemCount prod={props.prod} onAddFirst={props.onAddFirst} onAdd={props.onAdd} onRemove={props.onRemove} id={props.id} cartItems={props.cartItems}/>
+        <ItemCount prod={props.prod} onAddFirst={props.onAddFirst} onAdd={props.onAdd} onRemove={props.onRemove} cartItems={props.cartItems}/>
         </div>
         <div>
             <Link to='/'>

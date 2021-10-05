@@ -1,6 +1,6 @@
 import React, { useRef, useCallback } from "react";
 import { withRouter } from "react-router";
-import app from "./Firebase";
+// import app from "./Firebase";
 import Login from "./Login";
 import '../estilados/App.css'
 import {Link, useHistory} from 'react-router-dom'

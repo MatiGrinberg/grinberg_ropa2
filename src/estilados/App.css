@@ -156,6 +156,12 @@ code {
 .home{
   background-color: darkolivegreen;
 }
+.des{
+  font-size: 24px;
+  padding: 15px;
+  margin: 5px;
+  border: greenyellow 5px dashed;
+}
 .actual{
   font-size: 50px;
   padding: 5px;

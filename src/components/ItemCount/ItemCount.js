@@ -10,12 +10,11 @@ import NavBar from '../NavBar/NavBar';
 
 function ItemCount(props) {
     // Variables + Funciones
-    const {prod, cartItems, onAdd, onRemove, onAddFirst, id} = props;
+    const {prod, cartItems, onAdd, onRemove, onAddFirst} = props;
     const exist = cartItems.find(item =>item.id === prod.id)
-    // const {currentUser} = useContext(AuthContext)
-    // const total = cartItems.reduce((a, c) => a + c.qty * c.price, 0)
     
     // Logged in?
+    // const {currentUser} = useContext(AuthContext)
     // if (!currentUser) {
     //     return <Redirect to='/login'/>}
     
@@ -34,7 +33,7 @@ function ItemCount(props) {
                         <div key={item.id} className='subt'>
                             {/* <h3>{item.title}</h3>
                             <h3>{item.qty} x ${item.price}</h3> */}
-                            { item.id===id && 
+                            { item.id===prod.id && 
                             <div> 
                                 <div>{ item.qty<10 &&<button className='btn_cart' onClick={()=>onAdd(item)}>+</button>}</div>
                                 <span className='actual'>{item.qty}</span>
@@ -44,9 +43,7 @@ function ItemCount(props) {
                         </div>
                     ))}
                     
-                    {/* <button class='clasico' onClick={()=>onAddFirst(prod)}>Agregar</button>
-                    <div><button className='btn_cart' onClick={()=>onAdd(exist)}>+</button></div>
-                    <div><button className='btn_cart' onClick={()=>onRemove(exist)}>-</button></div> */}
+                   
                 </div>
            
                 {/* {cartItems.length !== 0 && (

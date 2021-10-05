@@ -7,7 +7,7 @@ import {Link,useHistory} from 'react-router-dom'
 
 function Item(props) {
     // Variables    
-    const {product, onAdd} = props
+    const {product} = props
     // const {currentUser} = useContext(AuthContext)
     // Logged in?
     // if (!currentUser) {
@@ -24,11 +24,7 @@ function Item(props) {
             <Link to={'/'+product.link+'/'+product.link} className='header_link'>
             <h3>{product.title}</h3>
             </Link>
-            {/* <h3>Precio: {product.price}</h3>
-            <h3>{product.desc}</h3>
-            <h3>Stock Max: {product.stock}</h3> */}
         </div>
-        {/* <button class='clasico' onClick={()=>onAdd(product)}>Agregar</button> */}
     </div>
     )
 }

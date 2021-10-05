@@ -1,20 +1,20 @@
 import React,{ useContext,useState } from 'react'
 import {Redirect} from 'react-router-dom'
-import '../estilados/App.css'
+import '../../estilados/App.css'
 import NavBar from '../NavBar/NavBar'
 import { AuthProvider,AuthContext,useAuth } from '../Context/Context'
 import ItemCount from '../ItemCount/ItemCount'
-import {db} from './Firebase'
+import {db} from '../Firebase/Firebase'
 import {Link,useHistory} from 'react-router-dom'
 
 function Checkout(props) {
     
     // Variables
-    const {currentUser, logout} = useAuth()
-    const history = useHistory()
+    // const {currentUser, logout} = useAuth()
+    // const history = useHistory()
     const {cartItems,setCartItems} = props;
 
-    // Funciones
+    // FireStore
     const [compras,setCompras] = useState([]);
     
     const baseDeDatos = (e)=>{
@@ -29,16 +29,16 @@ function Checkout(props) {
             snapshot.docs.forEach(doc=>{
             comprasArray.push(doc.id)
             setCompras(comprasArray)
-            setTimeout(() => {
-            logout()
-            }, 5000);
+            // setTimeout(() => {
+            // logout()
+            // }, 5000);
             })
         }) 
     }
     
     // Logged in?
-    if (!currentUser) {
-    return <Redirect to='/login'/>}
+    // if (!currentUser) {
+    // return <Redirect to='/login'/>}
 
     // Return 
     return(
@@ -53,7 +53,7 @@ function Checkout(props) {
             <div>
                 <label>
                 e-Mail
-                <input name="email" type="email" placeholder={currentUser.email} required/>
+                <input name="email" type="email" /*placeholder={currentUser.email}*/ required/>
                 </label>
             </div>
             <div>

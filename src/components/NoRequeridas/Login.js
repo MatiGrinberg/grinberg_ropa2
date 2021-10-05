@@ -1,6 +1,6 @@
 import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
-import app from "./Firebase.js";
+// import app from "./Firebase.js";
 import '../estilados/App.css'
 import { AuthContext } from "./Context.js";
 import {Link,useHistory} from 'react-router-dom'

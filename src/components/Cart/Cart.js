@@ -11,11 +11,12 @@ import {useCart,CartContext} from '../Context/Context'
 
 function Cart(props) {
     // Variables + Funciones
-    const {onAdd, onRemove, onAddFirst, id} = props;
+    const {onAdd, onRemove} = props;
     const {cartItems} = useContext(CartContext)
     const total = cartItems.reduce((a, c) => a + c.qty * c.price, 0)
-    // const {currentUser} = useContext(AuthContext)
+
     // Logged in?
+    // const {currentUser} = useContext(AuthContext)
     // if (!currentUser) {
     //     return <Redirect to='/login'/>}
     

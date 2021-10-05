@@ -10,7 +10,7 @@ import {Link,useHistory} from 'react-router-dom'
 function ItemList(props) {
    // Variables y Funciones
    const {products, cartItems, onRemove, onAdd, onAddFirst} = props;
-//    const {currentUser} = useContext(AuthContext)
+// const {currentUser} = useContext(AuthContext)
    const [productsDelay, setProductsDelay] =useState([])
 
     // Promise
@@ -29,15 +29,10 @@ function ItemList(props) {
 //   Return
    return (
        <div className='home'>
-            {/* <NavBar countCartItems={cartItems.length}/> */}
-
             {productsDelay.map((product) => (
-            
-           <Item key={product.id} product={product} onAdd={onAddFirst}></Item>
-           ))
+               <Item key={product.id} product={product}></Item>
+            ))
             }
-            
-           {/* <ItemCount onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}/> */}
            </div>
    )  
 } 

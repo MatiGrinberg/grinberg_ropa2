@@ -1,6 +1,6 @@
 import React, { useContext }  from 'react'
 import {Redirect} from 'react-router-dom'
-import app from '../NoRequeridas/Firebase'
+import app from '../Firebase/Firebase'
 import Item from '../Item/Item'
 import NavBar from '../NavBar/NavBar'
 import ItemCount from '../ItemCount/ItemCount'

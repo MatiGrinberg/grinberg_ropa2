@@ -11,6 +11,7 @@ const app = firebase.initializeApp({
     appId: "1:558839031532:web:32f20100e338f800f1a7c9"
 });
 
+
 export const db = app.firestore();
 export const auth = app.auth()
 export default app;
