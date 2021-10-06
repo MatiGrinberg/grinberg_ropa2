@@ -11,7 +11,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Checkout from './components/Checkout/Checkout'
 // import PrivateRoute from './components/PrivateRoute'
 import { AuthProvider,AuthContext, useCart, CartContext, CartProvider } from './components/Context/Context';
-import {BrowserRouter as Router, Switch, Route,Link} from 'react-router-dom'
+import {BrowserRouter as Router, useParams, Switch, Route,Link} from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Cart from './components/Cart/Cart'
 import {app,db} from './components/Firebase/Firebase'
@@ -19,10 +19,10 @@ import {app,db} from './components/Firebase/Firebase'
 
 function App() {
   
-  // ItemCollection de FireStore
+  // ItemCollection de FireStore (todos los productos)
   const [products, setProducts] = useState([])
-  const [zapato, setZapato] = useState()
-  const [campera, setCampera] = useState()
+  // const [zapato, setZapato] = useState()
+  // const [campera, setCampera] = useState()
 
   const ref = db.collection("ItemCollection")
 
@@ -35,17 +35,22 @@ function App() {
       });
       setProducts(items);
     });
-    // setZapato
-    ref.doc('zapato').get().then((snapshot) => {
-      setZapato(snapshot.data())})
+
+    // // setZapato
+    // ref.doc('zapato').get().then((snapshot) => {
+    //   setZapato(snapshot.data())})
+      
     // setCampera
-    ref.doc('campera').get().then((snapshot) => {
-      setCampera(snapshot.data())})
+    // ref.doc('campera').get().then((snapshot) => {
+    //   setCampera(snapshot.data())})
   }
 
   useEffect(() => {
     getProducts();
   }, []);
+
+  
+  
 
   // CartItems
   const {cartItems, setCartItems} = useContext(CartContext);  
@@ -89,30 +94,42 @@ const onRemove = (product) => {
   return (
     // <AuthProvider>
     // <CartProvider>
+    
       <Router>
+        {/* <Switch> */}
           <div className="App">
-              <Route exact path="/category">
-                <ItemDetailContainer products={products}/>
-              </Route>
               <Route exact path="/">
                 <NavBar countCartItems={count}/>
                 <ItemListContainer products={products}/>
               </Route>
-              <Route path="/zapato/zapato">
+              <Route exact path="/category">
+                <Link to='/' className='header_link'>
+                    <h1 className='inicio'> CLICK PARA IR A INICIO</h1>
+                </Link>
+                <ItemDetailContainer products={products}/>
+              </Route>
+
+              <Route path="/:ropa_id/:ropa_id">
+                <NavBar countCartItems={count}/>
+                <ItemDetail onAdd={onAdd} onAddFirst={onAddFirst} onRemove={onRemove} cartItems={cartItems}/>
+              </Route>
+
+              {/* <Route path="/zapato/zapato">
                 <NavBar countCartItems={count}/>
                 <ItemDetail prod={zapato} onAdd={onAdd} onAddFirst={onAddFirst} onRemove={onRemove} cartItems={cartItems}/>
               </Route>
               <Route path="/campera/campera">
                 <NavBar countCartItems={count}/>
                 <ItemDetail prod={campera} onAdd={onAdd} onAddFirst={onAddFirst} onRemove={onRemove} cartItems={cartItems}/>
-              </Route>
-              <Route path="/checkout">
+              </Route> */}
+
+              <Route exact path="/checkout">
                 <Link to='/' className='header_link'>
                     <h1 className='inicio'> CLICK PARA IR A INICIO</h1>
                 </Link>
                 <Checkout cartItems={cartItems}  setCartItems={setCartItems}/>
               </Route>
-              <Route path="/cart">
+              <Route exact path="/cart">
                 <Link to='/' className='header_link'>
                     <h1 className='inicio'> CLICK PARA IR A INICIO</h1>
                 </Link>
@@ -125,10 +142,11 @@ const onRemove = (product) => {
                 <Signup/>
               </Route> */}
           </div>
-      </Router>
+          {/* </Switch> */}
+          </Router>
+      
     // </CartProvider>
     // </AuthProvider> 
-    
     
   );
 };

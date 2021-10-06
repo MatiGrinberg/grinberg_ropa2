@@ -21,9 +21,7 @@ function ItemCount(props) {
     // Return
     return (
             
-            <div className='cart'>
-                {/* <h1>Items</h1> */}
-                
+            <div className='cart'> 
                 <div className="cart_text">
                     { cartItems.length===0 && <h2>No tenes items seleccionados</h2>}
                 </div>
@@ -31,8 +29,6 @@ function ItemCount(props) {
                 <button class='clasico' onClick={()=>onAddFirst(prod)}>Agregar</button>
                     {cartItems.map((item)=>(
                         <div key={item.id} className='subt'>
-                            {/* <h3>{item.title}</h3>
-                            <h3>{item.qty} x ${item.price}</h3> */}
                             { item.id===prod.id && 
                             <div> 
                                 <div>{ item.qty<10 &&<button className='btn_cart' onClick={()=>onAdd(item)}>+</button>}</div>
@@ -42,8 +38,6 @@ function ItemCount(props) {
                             }
                         </div>
                     ))}
-                    
-                   
                 </div>
            
                 {/* {cartItems.length !== 0 && (

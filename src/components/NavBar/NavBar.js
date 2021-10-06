@@ -1,5 +1,5 @@
 import '../../estilados/App.css'
-import {Link,useHistory} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
 // import app from '../NoRequeridas/Firebase'
 import CartWidget from '../CartWidget/CartWidget'

@@ -1,5 +1,5 @@
 import React, {useContext, useState , useEffect} from 'react'
-import data from '../../data'
+// import data from '../../data'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import {Link,Redirect, useHistory} from 'react-router-dom'
 import '../../estilados/App.css'
@@ -27,11 +27,11 @@ function ItemDetailContainer(props) {
     
     return (
         <div>
-            <h1 className= 'cat' >Categorias</h1>
+            <h1 className='cat'>Categorias</h1>
             {product.map((individual) => (
-            <Link to={'/'+individual.link+'/'+individual.link} className='header_link'>
-            <button className= 'cat'>{individual.link}</button>
-            </Link>))
+                <Link to={'/'+individual.link+'/'+individual.link} className='header_link'>
+                <button className= 'cat'>{individual.link}</button>
+                </Link>))
             }
         </div>
     )
